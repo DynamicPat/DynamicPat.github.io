@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Patrick Best's Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="Packages/css/bootstrap.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="Packages/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <div>
+        <img src="Pictures/background.jpg" class="bg" />
+    </div>
+
+    <div id="page-wrap" class="centered">
+        <div class="welcome-header">
+            <h1>About Me</h1>
+        </div>
+
+        <div class="story-line">
+
+            <div class="birth">
+                <a href="#" data-toggle="popover" data-trigger="hover" title="Acheivement Unlocked: Birth!" data-content="Born December 20, 1991 in Kilmarnock, VA">
+                    <img src="Pictures/born.png" alt="Born" style="width:50px;height:50px" />
+                </a>
+            </div>
+
+            <div class="line">
+                <img src="Pictures/vertical-black-line.jpg" alt="time" style="width:25px;height:50px"/>
+            </div>
+
+            <div class="high-school">
+                <a href="#" data-toggle="popover" data-trigger="hover" title="High Score: Make a mark!" data-content="Graduated from Lancaster High School, in May 2010">
+                    <img src="Pictures/high-school.png" alt="Graduated High School" style="width:50px;height:50px" />
+                </a>
+            </div>
+
+            <div class="line">
+                <img src="Pictures/vertical-black-line.jpg" alt="time" style="width:25px;height:50px" />
+            </div>
+
+            <div class="college">
+                <a href="#" data-toggle="popover" data-trigger="hover" title="Goal: Complete Academia!" data-content="Graduated from James Madison University, in December 2014">
+                    <img src="Pictures/jmu.jpg" alt="Graduated JMU" style="width:50px;height:50px" />
+                </a>
+            </div>
+
+            <div class="line">
+                <img src="Pictures/vertical-black-line.jpg" alt="time" style="width:25px;height:50px" />
+            </div>
+
+            <div class="tech-dynamism">
+                <a href="#" data-toggle="popover" data-trigger="hover" title="Path Discovered: Enter the 'Real World'" data-content="Started work as a Software Engineer and Tech Dynamism, in January 2015">
+                    <img src="Pictures/tech-dynamism.jpg" alt="Started at TD" style="width:50px;height:50px" />
+                </a>
+            </div>
+
+            <div class="line">
+                <img src="Pictures/vertical-black-line.jpg" alt="time" style="width:25px;height:50px" />
+            </div>
+
+            <div class="today">
+                <a href="#" data-toggle="popover" data-trigger="hover" title="Current State: Today" data-content="Welcome to the now.">
+                    <img src="Pictures/today.png" alt="Today" style="width:50px;height:50px" />
+                </a>
+            </div>
+
+        </div>
+
+        <div class="site-links">
+            <div class="home">
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Script Tags-->
+    <script src="Packages/js/jquery-2.2.1.min.js"></script>
+    <script src="Packages/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+
+            console.log("Hey! Looks like you might be checking out my code! Have any suggestions? Email me at: patrickbest1991@gmail.com :)");
+        });
+    </script>
+
+    <!--Style Sheet-->
+    <style>
+        .welcome-header {
+            text-align: center;
+            font-family: Courier New, Courier, monospace;
+        }
+
+        .story-line {
+            text-align: center;
+        }
+
+        .site-links {
+            text-align: center;
+            padding-top: 25px;
+        }
+
+        .popover {
+            width: 75%;
+        }
+
+        #page-wrap {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px; /* this is half the height of your div*/
+            margin-left: -300px; /*this is half of width of your div*/
+            background: white;
+            -moz-box-shadow: 0 0 20px black;
+            -webkit-box-shadow: 0 0 20px black;
+            box-shadow: 0 0 20px black;
+        }
+
+        img.bg {
+            /* Set rules to fill background */
+            min-height: 100%;
+            min-width: 1024px;
+            /* Set up proportionate scaling */
+            width: 100%;
+            height: auto;
+            /* Set up positioning */
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        @media screen and (max-width: 1024px) { /* Specific to this particular image */
+            img.bg {
+                left: 50%;
+                margin-left: -512px; /* 50% */
+            }
+        }
+    </style>
+</body>
+</html>
