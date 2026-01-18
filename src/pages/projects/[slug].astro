@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntryBySlug, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection('projects');
+  return entries.map(({ slug }) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntryBySlug("projects", slug!);
+if (!entry) throw new Error(`Project not found: ${slug}`);
+const { data, body } = entry;
+---
+<BaseLayout title={`${data.title} — Project`} description={data.summary}>
+  <article class="container" aria-labelledby="title">
+    <header>
+      <h1 id="title">{data.title}</h1>
+      <p class="muted">{data.summary}</p>
+      {data.links.length > 0 && (
+        <p style="margin-top: var(--space-2);">
+          {data.links.map(l => (<a href={l.url} target="_blank" rel="noopener">{l.label}</a>))}
+        </p>
+      )}
+    </header>
+
+    <section>
+      <h2>Tech</h2>
+      <p>{data.tech.join(" · ")}</p>
+    </section>
+
+    <section>
+      <h2>Write-up</h2>
+      <div>
+        {body}
+      </div>
+    </section>
+
+    <section>
+      <h2>Tags</h2>
+      <p>{data.tags.join(" · ")}</p>
+    </section>
+  </article>
+</BaseLayout>

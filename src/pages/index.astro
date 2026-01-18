@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../content/site.json";
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
+const allPosts = (await getCollection("posts")).sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, 6);
+const latestPosts = allPosts.slice(0, 5);
+---
+
+<BaseLayout title={`${site.name} — Builder of warm, nerdy things`} description={site.tagline}>
+	<section class="hero container">
+		<div style="display:flex; align-items:center; gap: var(--space-4);">
+			<div style="width:96px; height:96px; border-radius:50%; background:var(--accent); border:1px solid var(--border); display:grid; place-items:center; font-weight:700;">DP</div>
+			<div>
+				<h1>Design-minded engineer crafting joyful, thoughtful tools.</h1>
+				<p>Exploring systems, interfaces, and playful experiments — with care.</p>
+				<p style="margin-top: var(--space-3);">
+					<a href="/projects">See projects →</a>
+					&nbsp;•&nbsp;
+					<a href="/writing">Read writing →</a>
+					&nbsp;•&nbsp;
+					<a href="/contact">Contact</a>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="container">
+		<h2>What I'm about</h2>
+		<ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-3);">
+			<li class="card">Warm craft over cold velocity.</li>
+			<li class="card">Small, principled steps compound.</li>
+			<li class="card">Design is how it works and feels.</li>
+			<li class="card">Systems beat goals; habits make progress.</li>
+			<li class="card">Play invites curiosity and wisdom.</li>
+		</ul>
+	</section>
+
+	<section class="container">
+		<h2>Featured projects</h2>
+		<ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-3);">
+			{featuredProjects.map(({ data, slug }) => (
+				<li class="card">
+					<a href={`/projects/${slug}`} class="card__link">
+						<h3 class="card__title">{data.title}</h3>
+						<p class="card__summary">{data.summary}</p>
+						<p class="card__meta">{data.tech.join(" · ")}</p>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class="container">
+		<h2>Latest writing</h2>
+		<ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: 1fr; gap: var(--space-3);">
+			{latestPosts.map(({ data, slug }) => (
+				<li class="card">
+					<a href={`/writing/${slug}`} class="card__link">
+						<h3 class="card__title">{data.title}</h3>
+						<p class="card__summary">{data.summary}</p>
+					</a>
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class="container">
+		<h2>Principles I build by</h2>
+		<ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3);">
+			<li class="card"><strong>Clarity first:</strong> Decide once, document well.</li>
+			<li class="card"><strong>Texture matters:</strong> Gentle motion; readable type.</li>
+			<li class="card"><strong>Bias to small:</strong> Tiny wins keep momentum.</li>
+			<li class="card"><strong>Care over clever:</strong> Fewer surprises; better defaults.</li>
+		</ul>
+	</section>
+
+	<section class="container">
+		<h2>Side quests</h2>
+		<ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: 1fr; gap: var(--space-2);">
+			<li>Weekly sketch: calm gradients and tactile UI.</li>
+			<li>Reading lab: models from design/dev classics.</li>
+			<li>Garden tending: resurface old notes and ideas.</li>
+		</ul>
+	</section>
+
+	<section class="container">
+		<p><a href="/contact" class="cta">Say hello →</a></p>
+	</section>
+</BaseLayout>

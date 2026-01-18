@@ -1,0 +1,23 @@
+---
+import site from "../../content/site.json";
+---
+<nav class="nav">
+  <div class="nav__inner container">
+    <a class="brand" href="/">{site.name}</a>
+    <button class="theme-toggle" aria-label="Toggle theme" on:click={() => {
+      const current = document.documentElement.dataset.theme;
+      const next = current === 'dark' ? 'light' : 'dark';
+      // @ts-ignore
+      window.__setTheme(next);
+    }}>
+      <span aria-hidden="true">🌓</span>
+    </button>
+    <ul class="nav__links">
+      <li><a href="/about">About</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/writing">Writing</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>

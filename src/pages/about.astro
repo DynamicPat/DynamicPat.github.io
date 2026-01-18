@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../content/site.json";
+---
+<BaseLayout title={`About — ${site.name}`} description="A warm, narrative story about how I build.">
+  <article class="container" aria-labelledby="title">
+    <header>
+      <h1 id="title">About</h1>
+      <p class="muted">A warm, narrative story—not corporate.</p>
+    </header>
+
+    <section>
+      <p>
+        Patrick Best is an Application Systems Manager at CarMax and a former Engineering Manager at Snagajob. He’s led teams across product delivery, incident response, and platform reliability, and still loves getting hands-on when it sharpens the outcome.
+      </p>
+      <p>
+        He co-founded Weaver’s Circle as CTO to build products that strengthen social belonging. Earlier, he grew as a full-stack engineer at Tech Dynamism, combining business analysis, architecture, and shipping code.
+      </p>
+      <p>
+        Patrick completed CarMax’s Management Development Program (seven skill demos on communication, talent development, and prioritization) and Snagajob’s Leadership Development Program. He’s also a former Twilio Champion—read more about the program <a href="https://www.twilio.com/champions" target="_blank" rel="noopener">here</a>.
+      </p>
+      <p>
+        Outside of work, Patrick plays guitar, bass, drums, and piano, and once released music as half of the electronic duo Modus Culture. You can listen to his archives on <a href="https://soundcloud.com/patrickbest" target="_blank" rel="noopener">SoundCloud</a> and to Modus Culture at <a href="https://soundcloud.com/modus-culture" target="_blank" rel="noopener">soundcloud.com/modus-culture</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Values & principles</h2>
+      <ul>
+        <li>Care over clever — defaults should feel wise.</li>
+        <li>Clarity first — decide once, document well.</li>
+        <li>Small wins — momentum from tiny, finished work.</li>
+        <li>Texture matters — motion and type that help.</li>
+        <li>Systems beat goals — habits make progress inevitable.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How I work</h2>
+      <ul>
+        <li>Bias to prototypes and real users early.</li>
+        <li>Design through writing; name things well.</li>
+        <li>Automate the boring; protect attention.</li>
+      </ul>
+    </section>
+
+    <aside aria-label="Now" style="border:1px solid var(--border); border-radius: var(--radius); padding: var(--space-3);">
+      <h2>Now</h2>
+      <p>Exploring calm interfaces, tiny tools, and better team rituals.</p>
+    </aside>
+  </article>
+</BaseLayout>

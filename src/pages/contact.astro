@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../content/site.json";
+---
+<BaseLayout title={`Contact — ${site.name}`} description="Say hello via email or socials.">
+  <section class="container">
+    <h1>Contact</h1>
+    <p>Want to get in touch? Email me at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    <ul class="footer__socials" aria-label="Social links">
+      {site.socials?.github && <li><a href={site.socials.github} target="_blank" rel="me noopener noreferrer">GitHub</a></li>}
+      {site.socials?.linkedin && <li><a href={site.socials.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn</a></li>}
+      {site.socials?.goodreads && <li><a href={site.socials.goodreads} target="_blank" rel="me noopener noreferrer">Goodreads</a></li>}
+    </ul>
+  </section>
+</BaseLayout>

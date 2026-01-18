@@ -1,0 +1,20 @@
+{
+  "name": "Dynamic Pat",
+  "tagline": "Warm, playful, nerdy, clean, wise.",
+  "email": "patrickbest1991@gmail.com",
+  "socials": {
+    "github": "https://github.com/DynamicPat",
+    "linkedin": "https://www.linkedin.com/in/patrick-best/",
+    "goodreads": "https://www.goodreads.com/user/show/37038309-patrick-best"
+  },
+  "featuredProjects": [
+    "project-arc-lab",
+    "open-source-toolbox",
+    "creative-playfield"
+  ],
+  "featuredPosts": [
+    "snagajob-twilio-case-study",
+    "leading-ethics-discussions-at-work",
+    "lol-summoner-lookup-by-sms"
+  ]
+}

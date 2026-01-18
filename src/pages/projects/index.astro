@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const items = await getCollection("projects");
+const tags = Array.from(new Set(items.flatMap(i => i.data.tags))).sort();
+---
+<BaseLayout title="Projects — Dynamic Pat" description="Selected projects and experiments.">
+  <section class="container">
+    <h1>Projects</h1>
+    <p>Filterable gallery of work and playful experiments.</p>
+
+    <div id="filters" style="display:flex; gap: var(--space-2); flex-wrap: wrap; margin-block: var(--space-3);">
+      <button data-tag="all" class="tag-btn" aria-pressed="true">All</button>
+      {tags.map(t => (<button data-tag={t} class="tag-btn" aria-pressed="false">{t}</button>))}
+    </div>
+
+    <ul id="project-list" class="grid" style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-3);">
+      {items.map(({ data, slug }) => (
+        <li class="card" data-tags={data.tags.join(",")}>
+          <a href={`/projects/${slug}`} class="card__link">
+            <h3 class="card__title">{data.title}</h3>
+            <p class="card__summary">{data.summary}</p>
+            <p class="card__meta">{data.tech.join(" · ")}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll('.tag-btn'));
+    const cards = Array.from(document.querySelectorAll('#project-list .card'));
+    function setActive(tag) {
+      buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tag === tag)));
+      cards.forEach(c => {
+        const tags = (c.dataset.tags || '').split(',');
+        const show = tag === 'all' || tags.includes(tag);
+        c.style.display = show ? '' : 'none';
+      });
+    }
+    buttons.forEach(b => b.addEventListener('click', () => setActive(b.dataset.tag)));
+  </script>
+</BaseLayout>

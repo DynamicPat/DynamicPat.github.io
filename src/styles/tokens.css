@@ -1,0 +1,24 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --brand: #5f6af2;
+  --accent: #e7e9ff;
+  --border: #e6e6e6;
+  --container: 68rem;
+  --radius: 10px;
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+}
+
+html[data-theme="dark"] {
+  --bg: #0b0b0c;
+  --text: #f6f7fb;
+  --muted: #9aa1aa;
+  --brand: #94a2ff;
+  --accent: #182043;
+  --border: #1e2126;
+}

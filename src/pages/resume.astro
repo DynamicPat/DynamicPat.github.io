@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import site from "../../content/site.json";
+---
+<BaseLayout title={`Resume — ${site.name}`} description="Clean, readable, print-friendly resume.">
+  <section class="container">
+    <h1>Resume</h1>
+    <p class="muted">Print-friendly page. Download the PDF below.</p>
+    <p><a href="/resume.pdf" download>Download PDF</a> (replace this in the repo at public/resume.pdf)</p>
+
+    <article style="max-width: 72ch;">
+      <h2>Profile</h2>
+      <p>Application Systems Manager with a blend of engineering leadership, incident response, and platform delivery. Former Twilio Champion, co-founder, and hands-on builder who values clarity, calm execution, and human-centered systems.</p>
+
+      <h2>Experience</h2>
+      <p><strong>CarMax</strong> — Application Systems Manager (Feb 2025–Present) · Richmond, VA</p>
+      <p><strong>CarMax</strong> — Principal Engineer (Oct 2022–Feb 2025)</p>
+      <p><strong>Snagajob</strong> — Engineering Manager (Jan 2022–Aug 2022) · Lead Web Engineer (Mar 2021–Jan 2022) · Senior Software Engineer (Jul 2019–Feb 2021) · Software Engineer (Aug 2018–Jun 2019)</p>
+      <p><strong>Weaver’s Circle</strong> — CTO & Co-Founder (Jan 2023–Dec 2024) · Built social-belonging products; served as fractional leadership alongside CarMax.</p>
+      <p><strong>Tech Dynamism</strong> — Software Engineer (Jan 2015–Jan 2019)</p>
+      <p><strong>GroMobi</strong> — Junior Team Leader (Feb 2014–Dec 2014)</p>
+
+      <h2>Leadership & Programs</h2>
+      <p>CarMax Management Development Program — 7 skill demonstrations in communication, talent development, engagement, and prioritization.</p>
+      <p>Snagajob Leadership Development Program — Internal program for emerging engineering leaders; delivered technical talks on Twilio, ethics, and platform practices.</p>
+      <p>Twilio Champion — Alumni of Twilio’s community program; details at <a href="https://www.twilio.com/champions" target="_blank" rel="noopener">twilio.com/champions</a>.</p>
+
+      <h2>Skills</h2>
+      <p><strong>Programming:</strong> C#, .NET Core, Web API, Node, JavaScript, RabbitMQ</p>
+      <p><strong>Data:</strong> MySQL, MongoDB</p>
+      <p><strong>Source Control:</strong> Git, GitHub</p>
+      <p><strong>Systems & Process:</strong> SDLC, Scrum, feasibility analysis, incident response</p>
+      <p><strong>Modeling & Design:</strong> UML activity design, Visio</p>
+      <p><strong>Ops:</strong> Linux administration, SSH/Putty; basic AWS</p>
+
+      <h2>Education</h2>
+      <p>James Madison University — BBA, Computer Information Systems; Minor in Music Industry</p>
+
+      <h2>Links</h2>
+      <p><a href="/projects">Projects</a> · <a href="/writing">Writing</a> · <a href="/contact">Contact</a></p>
+    </article>
+  </section>
+
+  <style>
+    @media print {
+      nav, .footer { display: none; }
+      .container { max-width: none; padding: 0; }
+      body { color: #000; }
+    }
+  </style>
+</BaseLayout>
